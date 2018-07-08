@@ -1,60 +1,50 @@
-body {
-    background-color: lightblue;
-}
-
 #canvas {
-    height: 400px;
-    width: 600px;
-    border: 2px solid black;
-}
-
-#allCells {
     display: flex;
     list-style: none;
-    
+    height: 600px;
+    width: 820px;
 }
 
-#divChart {
-    /* background-color: orange; */
+#leftSide {
     display: flex;
     flex-flow: column wrap;
     list-style: none;
-    height: 200px;
-    min-width: 90px;
-    border: 1px solid salmon;
+
+}
+
+#divChart {
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    height: 230px;
+    min-width: 120px;
     margin: 20px 30px 20px 20px;
 }
 
-#chart {
-    /* flex: 1 1 10px; */
-    height: 15px;
-    width: 15px;
-    border: .5px solid black;
-    /* padding-left: 10px; */
-    /* margin: 0px 30px 0px 0px; */
+.chartCells {
+    height: 20px;
+    width: 20px;
+    border: .3px solid black;
 }
 
-#erase {
-    /* flex-flow: column wrap; */
+.button {
     border: .5px solid black;
     height: 30px;
     min-width: 60px;
     text-align: center;
     border-radius: 10px;
-    margin-top: 300px;
+    margin: 20px;
+    
 }
 
-#divCell {
+#rightSide {
     display: flex;
     flex-flow: row wrap;
     list-style: none;
     margin: 20px 0px 20px 0px;
-    /* padding-left: 10px; */
 }
 
-#cells {
-    /* flex: 1 1 10px; */
-    flex-flow: row wrap;
+.cells {
     height: 20px;
     width: 20px;
     border: .5px solid black;
