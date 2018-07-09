@@ -55,6 +55,11 @@ h1 {
     border: .5px solid black;
 }
 
+
+
+        /* -- responsive screens -- */
+
+
 @media only screen and (min-width: 320px) {
     #canvas {
         height: 189px;
