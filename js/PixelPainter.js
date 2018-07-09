@@ -10,7 +10,7 @@ canvas.id = 'canvas';
 ppDiv.appendChild(canvas);
 
 
-//====================================================================================================================
+//===========================================================================================================
 
 //      -- colors to insert --
 
@@ -18,7 +18,7 @@ let palette = ['ffc0cb', 'ffb6c1', 'ff69b4', 'ff1493', 'db7093', 'c71585', 'e6e6
 
 
 
-//=====================================================================================================================
+//===========================================================================================================
 
 //          LEFTSIDE
 
@@ -35,7 +35,7 @@ let divChart = document.createElement('div');
 divChart.id = 'divChart';
 leftSide.appendChild(divChart);
 
-//      -- leftside child cells for color chart & click Listener --
+//      -- leftside child make cells for color chart & click Listener --
 
 for (let i = 0; i < 60; i++) {
     let chartCells = document.createElement('div');
@@ -77,9 +77,22 @@ clear.className = 'button';
 clear.innerHTML = 'clear';
 leftSide.appendChild(clear);
 
+//      -- click listener --
+
+clear.addEventListener('click', clearer);
+
+//      -- loop through all canvas cells and make them white --
+
+function clearer() {
+    let clearing = document.getElementsByClassName('cells');
+    console.log('  clearing  ', clearing);
+    for (let i = 0; i < clearing.length; i++) {
+        clearing[i].style.backgroundColor = 'white';
+    }
+}
 
 
-//=====================================================================================================================
+//===========================================================================================================
 
 //          RIGHTSIDE
 
@@ -101,7 +114,7 @@ for (let i = 0; i < 1036; i++) {
     erase.addEventListener('click', eraser);
 }
 
-//      -- color cells with setColor --
+//      -- color pixel cells with setColor when mouseover --
 
 function colorPixel() {
     this.style.backgroundColor = setColor;
@@ -109,11 +122,10 @@ function colorPixel() {
     
 }
 
-//      -- color cells with white for erasing --
+//      -- color pixel cells with white when mouseover for erasing --
 
 function eraser() {
     setColor = 'ffffff';
     this.style.backgroundColor = setColor;
     console.log('  erase setColor  ', setColor);
 }
-
