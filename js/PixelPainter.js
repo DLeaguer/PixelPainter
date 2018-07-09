@@ -66,6 +66,7 @@ erase.id = 'erase';
 erase.className = 'button';
 erase.innerHTML = 'erase';
 leftSide.appendChild(erase);
+// see "rightside child make pixels cells" for the erase click listener
 
 
 //      -- leftside parent3 clear button --
@@ -97,6 +98,7 @@ for (let i = 0; i < 1036; i++) {
     rightSide.appendChild(cell);
     
     cell.addEventListener('mouseover', colorPixel);
+    erase.addEventListener('click', eraser);
 }
 
 //      -- color cells with setColor --
@@ -104,6 +106,14 @@ for (let i = 0; i < 1036; i++) {
 function colorPixel() {
     this.style.backgroundColor = setColor;
     console.log('  canvas cells  ', this.style.backgroundColor);
+    
+}
 
+//      -- color cells with white for erasing --
+
+function eraser() {
+    setColor = 'ffffff';
+    this.style.backgroundColor = setColor;
+    console.log('  erase setColor  ', setColor);
 }
 
