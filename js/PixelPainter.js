@@ -15,7 +15,7 @@ var divChart = document.createElement('div');
 divChart.id = 'divChart';
 leftSide.appendChild(divChart);
 
-for (var i = 0; i < 66; i++) {
+for (var i = 0; i < 60; i++) {
     var chartCells = document.createElement('div');
     chartCells.className = 'chartCells';
     divChart.appendChild(chartCells);
@@ -43,7 +43,7 @@ var rightSide = document.createElement('div');
 rightSide.id = 'rightSide';
 canvas.appendChild(rightSide);
 
-for (var i = 0; i < 810; i++) {
+for (var i = 0; i < 812; i++) {
     var cell = document.createElement('div');
     cell.className = 'cells';
     rightSide.appendChild(cell);
