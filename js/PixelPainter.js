@@ -10,15 +10,15 @@ canvas.id = 'canvas';
 ppDiv.appendChild(canvas);
 
 
-//===========================================================================================================
+//======================================================================
 
 //      -- colors to insert --
 
-let palette = ['ffc0cb', 'ffb6c1', 'ff69b4', 'ff1493', 'db7093', 'c71585', 'e6e6fa', 'dda0dd', 'ee82ee', 'ff00ff', '9932cc', '8a2be2', '800080', '7b68ee', '483d8b', '4b0082', 'fa8072', 'f08080', 'dc143c', 'ff0000', '8b0000', 'ffa500', 'ff8c00', 'ff7f50', 'ff4500', 'ffd700', 'ffff00', 'ffefd5', 'ffe4b5', 'ffdab9', 'f0e68c', 'bdb76b', '00ff00', '32cd32', '3cb371', '2e7b57', '228b22', '008000', '006400', '66cdaa', '8fbc8f', '20b2aa', '008080', '00ffff', '40e0d0', '00ced1', '4682b4', 'b0c4de', 'b0e0e6', '87ceeb', '6495ed', '0000ff', '000080', 'd2b48c', 'daa520', 'a52a2a', 'd3d3d3', '808080', '696969', '000000'];
+let palette = ['Pink', 'HotPink','DeepPink', 'Thistle', 'Plum', 'Orchid', 'Fuchsia', 'MediumPurple', 'SlateBlue', 'Purple', 'Salmon', 'IndianRed', 'Crimson', 'Red', 'Orange', 'Gold', 'Yellow', 'Moccasin', 'PeachPuff', 'MistyRose', 'Khaki', 'DarkKhaki', 'Chartreuse', 'MediumSpringGreen', 'MediumSeaGreen','SeaGreen', 'Green', 'DarkGreen', 'YellowGreen', 'MediumAquaMarine', 'DarkSeaGreen', 'LightSeaGreen', 'Teal', 'Cyan', 'Turquoise', 'DarkTurquoise', 'Beige', 'PowderBlue', 'LightBlue', 'SkyBlue', 'CornflowerBlue', 'SteelBlue','Blue', 'Navy', 'MidnightBlue', 'Bisque', 'NavajoWhite', 'BurlyWood', 'Tan', 'RosyBrown', 'GoldenRod', 'Peru', 'Chocolate', 'Brown', 'Maroon', 'Silver', 'Gray', 'DimGray', 'SlateGray', 'Black' ];
 
 
 
-//===========================================================================================================
+//======================================================================
 
 //          LEFTSIDE
 
@@ -44,6 +44,31 @@ for (let i = 0; i < 60; i++) {
     divChart.appendChild(chartCells);
     
     chartCells.addEventListener('click', pickColor);
+    chartCells.addEventListener('mouseover', showName);
+    chartCells.addEventListener('mouseout', hideName);
+}
+
+//      -- leftside parent2 colorName --
+
+let colorName = document.createElement('div');
+colorName.className = 'colorName';
+leftSide.appendChild(colorName);
+
+//      -- show color name with border color --
+
+function showName() {
+    for (let i = 0; i < palette.length; i++) {
+        colorName.innerHTML = this.style.backgroundColor;
+        colorName.style.borderColor = this.style.backgroundColor;
+        colorName.style.borderStyle = 'solid';
+        console.log('  innerHTML  ', colorName.innerHTML);
+    }
+}
+
+//      -- hide color name --
+
+function hideName() {
+    colorName.innerHTML = ''; 
 }
 
 //      -- define setColor --
@@ -59,7 +84,7 @@ function pickColor() {
 }
 
 
-//      -- leftside parent2 erase button --
+//      -- leftside parent3 erase button --
 
 let erase = document.createElement('div');
 erase.id = 'erase';
@@ -69,7 +94,7 @@ leftSide.appendChild(erase);
 // see "rightside child make pixels cells" for the erase click listener
 
 
-//      -- leftside parent3 clear button --
+//      -- leftside parent4 clear button --
 
 let clear = document.createElement('div');
 clear.id = 'clear';
@@ -92,7 +117,7 @@ function clearer() {
 }
 
 
-//===========================================================================================================
+//======================================================================
 
 //          RIGHTSIDE
 

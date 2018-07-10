@@ -36,6 +36,16 @@ h1 {
     cursor: pointer;
 }
 
+.colorName {
+    border: 10px solid white;
+    height: 20px;
+    max-width: 150px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0px 0px 0px 20px;
+    font-size: 12px;
+}
+
 .button {
     border: .5px solid black;
     height: 14px;
