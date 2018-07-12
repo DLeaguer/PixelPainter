@@ -108,14 +108,50 @@ clear.addEventListener('click', clearer);
 
 //      -- loop through all canvas cells and make them white --
 
+let getCells = document.getElementsByClassName('cells');
+
 function clearer() {
-    let clearing = document.getElementsByClassName('cells');
-    console.log('  clearing  ', clearing);
-    for (let i = 0; i < clearing.length; i++) {
-        clearing[i].style.backgroundColor = 'white';
+    console.log('  clearing  ', getCells);
+    for (let i = 0; i < getCells.length; i++) {
+        getCells[i].style.backgroundColor = 'white';
     }
 }
 
+//      -- leftside parent5 save button --
+
+let save = document.createElement('div');
+save.id = 'save';
+save.className = 'button';
+save.innerHTML = 'save';
+leftSide.appendChild(save);
+
+save.addEventListener('click', saver);
+
+let saved;
+function saver() {
+    saved = [];
+    for (let i = 0; i < getCells.length; i++) {
+        saved.push(getCells[i].style.backgroundColor);
+        console.log(saved);
+    }
+}
+
+//      -- leftside parent6 load button --
+
+let load = document.createElement('div');
+load.id = 'load';
+load.className = 'button';
+load.innerHTML = 'load';
+leftSide.appendChild(load);
+
+load.addEventListener('click', loader);
+
+function loader() {
+    for (let i = 0; i < getCells.length; i++) {
+        getCells[i].style.backgroundColor = saved[i];
+        console.log(getCells[i]);
+    }
+}
 
 //======================================================================
 
@@ -137,6 +173,7 @@ for (let i = 0; i < 1036; i++) {
     
     cell.addEventListener('mouseover', colorPixel);
     erase.addEventListener('click', eraser);
+
 }
 
 //      -- color pixel cells with setColor when mouseover --
