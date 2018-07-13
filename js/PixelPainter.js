@@ -164,25 +164,43 @@ let rightSide = document.createElement('div');
 rightSide.id = 'rightSide';
 canvas.appendChild(rightSide);
 
-//      -- rightside child make pixel cells & mouseover them --
+//      -- rightside child make pixel cells & color in pixels --
 
 for (let i = 0; i < 1036; i++) {
     let cell = document.createElement('div');
     cell.className = 'cells';
     rightSide.appendChild(cell);
     
-    cell.addEventListener('mouseover', colorPixel);
+    cell.addEventListener('mousedown', colorPixel);
+    cell.addEventListener('mouseover', redoColor);
+    cell.addEventListener('mouseup', stopColor);
     erase.addEventListener('click', eraser);
-
 }
 
-//      -- color pixel cells with setColor when mouseover --
+//      -- color pixel cells with setColor --
 
+let isClicked;
+
+//      -- mousedown --
 function colorPixel() {
     this.style.backgroundColor = setColor;
     console.log('  canvas cells  ', this.style.backgroundColor);
-    
+    isClicked = true;
 }
+
+//      -- mouseover --
+function redoColor() {
+    if (isClicked) {
+        this.style.backgroundColor = setColor;
+    }
+}
+
+//      -- mouseup --
+function stopColor() {
+    isClicked = false;
+}
+
+
 
 //      -- color pixel cells with white when mouseover for erasing --
 
